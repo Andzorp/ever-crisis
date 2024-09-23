@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Background MP4 Video -->
+    <div class="video-background">
+        <video autoplay muted loop id="backgroundVideo">
+            <source src="background/bustersword.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="icons/file (3).png" alt="Site Logo" class="logo">
+                </div>
+                <div class="header-info">
+                    <!-- Add any additional header info if needed -->
+                </div>
+            </div>
+        </header>
+
+        <div class="sidebar">
+            <button class="toggle-btn">
+                <i class="fas fa-chevron-right arrow-icon"></i>
+            </button>
+            <ul>
+                <li><a href="index.html"><img src="icons/home.png" alt="Home"><span class="link-text">Home</span></a></li>
+                <li><a href="characters.html"><img src="icons/characters.png" alt="Characters"><span class="link-text">Characters</span></a></li>
+                <li><a href="weapons.html"><img src="icons/weapons.png" alt="Weapons"><span class="link-text">Weapons</span></a></li>
+                <li><a href="materia.html"><img src="icons/materia.png" alt="Materia"><span class="link-text">Materia</span></a></li>
+                <li><a href="outfits.html"><img src="icons/outfits.png" alt="Outfits"><span class="link-text">Outfits</span></a></li>
+                <li><a href="summons.html"><img src="icons/summons.png" alt="Summons"><span class="link-text">Summons</span></a></li>
+            </ul>
+        </div>
+
+        <main id="main-content">
+            <h1>Characters and Limit Breaks</h1>
+            <p>Click on the Character image to see available Limit Breaks and steps needed to unlock them.</p>
+
+            <div class="character-list">
+                <!-- Example Character Block -->
+                <div class="character-container">
+                    <img src="icons/Cloud-Strife.png" alt="Cloud" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Cloud's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Cross-Slash</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy]. Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Blade Beam</h4>
+                                        Deal 1400% PHY/MAG Non-elem. damage [Range: All Enemies]. Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Aerith-Gainsborough.png" alt="Aerith" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Aerith's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Healing Wind</h4>
+                                        MAG heal is cast [Pot.: 83% of heal strength] [Range: All Allies]. Also, Regen is applied [Range: All Allies] [Dur.: 9s].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Seal Evil</h4>
+                                        Deal 1400% PHY/MAG Non-elem. damage [Range: All Enemies].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Barrett-Wallace.png" alt="Barret" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Barret's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Grenade Bomb</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Mindblow</h4>
+                                        Deal 1280% PHY/MAG Non-elem. damage [Range: Single Enemy]. Also, MDEF and PDEF is decreased [Pot.: Mid] [Range: Single Enemy] [Dur.: 23s]. [Extended: +8s] [Max. Pot.: High].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Tifa-Lockhart.png" alt="Tifa" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Tifa's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Somersault</h4>
+                                        Deal 640% PHY/MAG Non-elem. damage [Range: Single Enemy]. Also, PDEF and MDEF is decreased. [Pot.: Mid] [Range: Single Enemy] [Dur.: 23s]. [Extended: +8s] [Max.Pot.: Mid].
+                                        Charge Speed: 800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Waterkick</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Red-XIII.png" alt="Red" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Red-XIII's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Sled Fang</h4>
+                                        Deal 640% PHY/MAG Non-elem. damage [Range: Single Enemy]. Also, PATK and MATK is decreased [Pot.: Mid] [Range: Single Enemy] [Dur.: 23s]. [Extended: +8s] [Max. Pot.: Mid].
+                                        Charge Speed: 800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Lunatic High</h4>
+                                        MAG heal is cast [Pot.: 6% of heal strength] [Range: All Allies]. Also, PDEF and MDEF is increased [Pot: Mid] [Range: All Allies] [Dur.: 15s]. [Extended: +5s] [Max. Pot.: High].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Zack-Fair.png" alt="Zack-Fair" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Zack's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Slash Combo</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Meteor Shots</h4>
+                                        Deal 1400% PHY/MAG Non-elem. damage [Range: All Enemies].
+Charge Speed: 1800.
+
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Sephiroth.png" alt="Sephiroth" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Sephiroth's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Astral Gate</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Ardent Flare</h4>
+                                        Deal 1280% PHY/MAG Non-elem. damage. Also, PATK and MATK is Increased [Pot.: Mid] [Range: Self]. [Dur.: 23s]. [Extended: +8s] [Max. Pot.: High]
+Charge Speed: 1800.
+
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Matt.png" alt="Matt" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Matt's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Valiant Attempt</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Gigantic Shield</h4>
+                                        MAG heal is cast [Pot.: 6% of heal strength] [Range: All Allies]. Also, PDEF and MDEF is increased [Pot: Mid] [Range: All Allies] [Dur.: 15s]. [Extended: +5s] [Max. Pot.: High].
+Charge Speed: 1800.
+
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Lucia.png" alt="Lucia" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Lucia's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Queen’s Shot</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Cerulean Raven</h4>
+                                        Deal 1280% PHY/MAG Non-elem. damage. Also, PATK and MATK is decreased [Pot.: Mid] [Range: Single Enemy]. [Dur.: 23s]. [Extended: +8s] [Max. Pot.: High]
+Charge Speed: 1800.
+
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+                <div class="character-container">
+                    <img src="icons/Glenn.png" alt="Glenn" class="character-image" onclick="toggleChecklist(this)">
+                    <div class="checklist hidden">
+                        <h3>Glenn's Checklist</h3>
+                        <ul>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="cross-slash-1">
+                                    <label for="cross-slash-1">
+                                        <h4>Blazing Onslaught</h4>
+                                        Deal 2000% PHY/MAG Non-elem. damage [Range: Single Enemy].
+Charge Speed: 1800.
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-1')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-1">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkbox-header-container">
+                                    <input type="checkbox" id="blade-beam-2">
+                                    <label for="blade-beam-2">
+                                        <h4>Stage of Defeat</h4>
+                                        Deal 1400% PHY/MAG Non-elem. damage [Range: All Enemies].
+                                        Charge Speed: 1800.
+
+                                    </label>
+                                </div>
+                                <button class="quest-details-btn" onclick="toggleQuestDetails('quest-2')">View Quest Steps</button>
+                                <div class="quest-details hidden" id="quest-2">
+                                    <textarea placeholder="Enter quest steps here..."></textarea>
+                                    <button onclick="saveQuestSteps()">Save</button>
+                                </div>
+                            </li>
+                            <!-- Add more list items here -->
+                        </ul>                               
+                    </div>
+                </div>
+                <!-- Repeat for other characters -->
+            </div>
+
+            <div id="questModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <h2>Quest Details</h2>
+                    <textarea></textarea>
+                    <button onclick="saveQuestSteps()">Save</button>
+                </div>
+            </div>            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="checklist.js"></script>
+</body>
+</html>

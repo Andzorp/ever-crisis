@@ -1,0 +1,669 @@
+/* Reset some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack header, content, and footer */
+    min-height: 100vh; /* Full height of viewport */
+}
+
+/* Main content styling */
+#main-content {
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+    color: #fff;
+    background-color: transparent; /* Semi-transparent background to blend with video */
+    max-width: 1200px; /* Optional max width to limit how wide the content can get */
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    main h1 {
+        font-size: 2em; /* Adjust font size */
+    }
+    
+    main p {
+        font-size: 1em; /* Adjust font size */
+    }
+}
+
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 1.5em; /* Adjust font size */
+    }
+    
+    main p {
+        font-size: 0.9em; /* Adjust font size */
+    }
+}
+
+
+/* Header styling */
+header {
+    background-color: rgba(74, 93, 106, 0.3); /* Greyish blue with 80% opacity */
+    color: #e0e0e0; /* Light text color */
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #444; /* Subtle border */
+}
+
+/* Logo container styling */
+.logo-container {
+    display: flex;
+    align-items: center; /* Vertically center the logo */
+}
+
+/* Logo image styling */
+.logo {
+    height: 80px; /* Adjust height of the logo */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 40px; /* Space between logo and other content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-info {
+    display: flex;
+    gap: 15px;
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    width: 60px; /* Default width */
+    height: 100%;
+    background-color: rgba(74, 93, 106, 0.3); /* Greyish blue with 30% opacity */
+    position: fixed;
+    top: 110px; /* Adjust based on header height */
+    left: 0;
+    overflow: hidden; /* Hide overflow to keep the sidebar clean when collapsed */
+    border-right: 1px solid #444; /* Subtle border */
+    transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for expanding/collapsing */
+    z-index: 1; /* Ensure it stays above other content */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 10px; /* Padding for expanded state */
+    padding-top: 20px; /* Space from the top */
+}
+
+/* Expanded sidebar */
+.sidebar.expanded {
+    width: 150px; /* Expanded width */
+}
+
+/* Sidebar Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure the ul takes full width of the sidebar */
+}
+
+.sidebar ul li {
+    margin: 40px 0; /* Adjust margin for spacing */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #c0c0c0; /* Lighter link color */
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Add padding for better spacing */
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+    background-color: #1e2a38; /* Dark blue background on hover */
+    color: #fff; /* White text on hover */
+    border: 2px solid #007bff; /* Blue border */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Blue glow effect */
+    transform: translateX(5px); /* Subtle shift to add depth */
+}
+
+/* Icon styling */
+.sidebar ul li a img {
+    width: 40px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Increase space between icon and text */
+}
+
+/* Hide text in collapsed state */
+.sidebar .link-text {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show text when expanded */
+.sidebar.expanded .link-text {
+    display: inline;
+    opacity: 1; /* Smooth transition */
+    margin-left: 10px; /* Add spacing when expanded */
+}
+
+/* Sidebar expanded state */
+.sidebar.expanded {
+    width: 200px; /* Optional expanded width */
+}
+
+
+/* Centered Toggle Button */
+.toggle-btn {
+    position: fixed; /* Ensure the button stays in view */
+    top: 15%; /* Center vertically */
+    left: 70px; /* Position it to the right of the collapsed sidebar */
+    transform: translateY(-50%); /* Center vertically */
+    background: #4a5d6a; /* Match sidebar color */
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: left 0.3s ease, font-size 0.3s ease, width 0.3s ease, height 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    z-index: 2; /* Ensure it is above other elements */
+}
+
+/* Expanded State of the Button */
+.sidebar.expanded .toggle-btn {
+    left: calc(200px + 10px); /* Move further out when expanded */
+    font-size: 24px; /* Increase arrow size when expanded */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    transform: translateY(-50%) rotate(180deg); /* Flip the arrow */
+}
+
+/* Arrow Icon Styling */
+.arrow-icon {
+    font-size: 24px; /* Adjust the size of the arrow */
+    color: #fff; /* Ensure the arrow is visible */
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+}
+
+
+
+/* Arrow Icon Styling */
+.toggle-btn i {
+    font-size: 24px; /* Adjust the size of the arrow */
+    color: #fff; /* Ensure the arrow is visible */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    width: 100%;
+    max-width: 1200px; /* Optional max width for consistency */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+main h1, main p {
+    text-align: center; /* Center align text */
+}
+
+main h1 {
+    font-size: 2.5em; /* Adjust the font size as needed */
+    margin: 20px 0; /* Space above and below the heading */
+    line-height: 1.2; /* Adjust line height if needed */
+    text-align: center; /* Center align the text */
+}
+
+main p {
+    font-size: 1.2em; /* Adjust font size */
+    margin: 10px 0; /* Space above and below the paragraph */
+    text-align: center; /* Center align text */
+}
+
+
+section {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure it stays behind other content */
+}
+
+#backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make sure the video covers the entire area */
+}
+
+/* General Layout */
+.content {
+    padding: 20px;
+    margin-left: 240px; /* This ensures the content is pushed to the right, after the sidebar */
+    max-width: calc(100% - 240px); /* Ensures content doesn’t extend under the sidebar */
+}
+
+/* Character List Styling */
+.character-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.character-container {
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.character-container:hover {
+    transform: scale(1.05);
+}
+
+.character-container img {
+    height: cover;
+}
+
+.character-image {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    padding-top: 50px;
+}
+
+/* Checklist hidden initially */
+.hidden {
+    display: none;
+}
+
+.checklist {
+    background-color: rgba(74, 93, 106, 0.3); /* Greyish blue with 30% opacity */
+    border-radius: 10px;
+    margin-top: 20px; /* Add some space on top */
+    max-width: 800px; /* Limit the width for better readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+
+.checklist h3 {
+    margin: 0 0 20px; /* Space below the heading */
+    font-size: 1.8em; /* Adjust font size */
+    text-align: center; /* Center align the heading */
+    color: #e0e0e0; /* Light text color */
+}
+
+.checklist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header for checklist items */
+.checklist ul li h4 {
+    margin: 0 0 10px 0; /* Space below the header */
+    font-size: 1.2em; /* Font size for the header */
+    color: #ffd700; /* Gold color for headers */
+    border-bottom: 1px solid #444; /* Subtle border below header */
+    padding-bottom: 5px; /* Space below the text */
+}
+
+/* List item styling */
+.checklist ul li {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    font-size: 1em;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+}
+
+/* Checkbox Styling */
+.checklist ul li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Button Styling */
+.checklist ul li .quest-details-btn {
+    background-color: rgba(74, 93, 106, 0.6);
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.checklist ul li .quest-details-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.quest-details {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background for quest details */
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff; /* White text for readability */
+}
+
+.quest-details textarea {
+    width: 100%;
+    height: 100px; /* Adjust height as needed */
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    resize: vertical; /* Allow vertical resize */
+    background-color: #222; /* Dark background for textarea */
+    color: #fff; /* White text */
+}
+
+.quest-details button {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.quest-details button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Quest Details Button Hover Effect */
+.quest-details-btn:hover {
+    background-color: #1e2a38; /* Dark blue background on hover */
+    color: #fff; /* White text on hover */
+    border: 2px solid #007bff; /* Blue border */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Blue glow effect */
+    transform: translateX(5px); /* Subtle shift to add depth */
+}
+
+/* Quest Details */
+.quest-details {
+    margin-top: 10px;
+}
+
+.quest-details textarea {
+    width: 100%;
+    height: 100px; /* Adjust height as needed */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 93, 106, 0.3); /* Greyish blue with 30% opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+.modal.hidden {
+    display: none; /* Hide the modal by default */
+}
+
+.modal-content {
+    background-color: rgba(74, 93, 106, 0.9); /* Greyish blue with 30% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content textarea {
+    width: 95%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+main h1 {
+    font-size: 2.5em; /* Adjust the font size as needed */
+    margin-bottom: 20px; /* Space below the heading */
+    line-height: 1.2; /* Adjust line height if needed */
+    text-align: center; /* Center align the text */
+    padding-top: 80px; /* Space from the top of the container */
+}
+
+/* General Styling */
+body {
+    font-family: 'Exo', sans-serif;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+  
+header h1 {
+    color: #00e6e6;
+}
+
+/* Default: Horizontal Tabs for Large Screens */
+.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 10px;
+    margin: 0;
+    margin-left: 220px; /* Match the sidebar width when expanded */
+    transition: margin-left 0.3s ease; /* Smooth transition for tabs */
+    overflow: hidden;
+    margin-left: 220px; /* Adjust to match the width of your side nav */
+    margin-top: 100px;
+  }
+  
+/* Adjust tabs when sidebar is collapsed */
+.tabs.sidebar-collapsed {
+    margin-left: 220px; /* Adjust to match expanded sidebar */
+}
+
+/* Default tab button styling */
+.tab-button {
+    width: 160px; /* Set width to accommodate image and text */
+    height: auto; /* Adjust height based on content */
+    background-color: rgba(74, 93, 106, 0.3); /* Greyish blue with 30% opacity */
+    color: #c0c0c0; /* Lighter text color */
+    border: 2px solid #c0c0c0; /* Lighter border color */
+    box-shadow: 0 0 0 4px rgba(74, 93, 106, 0.5); /* Double-line effect */
+    font-size: 16px; /* Font size for the text */
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Align image and text horizontally */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: flex-start; /* Align items to the left */
+    transition: all 0.3s ease; /* Smooth transitions */
+    text-align: left; /* Align text to the left */
+    padding: 10px;
+    gap: 10px; /* Space between image and text */
+}
+
+@media (max-width: 768px) {
+    .tab-button {
+        width: 100px;
+        height: 100px;
+        font-size: 14px; /* Smaller text */
+    }
+
+    .tab-button img {
+        width: 30px; /* Smaller icon */
+    }
+}
+  
+  /* Responsive: Stack tabs vertically on smaller screens */
+  @media (max-width: 1900px) {
+    .tabs {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 0; /* Remove the left margin on smaller screens */
+      padding-left: 220px; /* Adjust padding to avoid side nav bar */
+    }
+  
+    .tab-button {
+      width: 100%;
+      margin-bottom: 10px;
+      min-width: unset;
+    }
+  }
+  
+/* Add styling for images */
+.tab-button img {
+    width: 40px; /* Adjust image size */
+    height: 40px; /* Set a consistent height for all images */
+    border-radius: 50%; /* Make the images circular */
+    border: 2px solid #c0c0c0; /* Add a border around the image */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Hover effect for the images */
+.tab-button:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 0 12px rgba(0, 230, 230, 0.8); /* Glow effect around the image */
+}
+
+/* Text inside the tab button */
+.tab-button span {
+    font-size: 14px; /* Adjust text size */
+    font-weight: bold; /* Make the text stand out */
+    color: #c0c0c0; /* Match the sidebar’s color */
+    flex-shrink: 1; /* Ensure the text doesn't overflow */
+}
+  
+/* Active state for the tab button */
+.tab-button.active {
+    background-color: rgba(74, 93, 106, 0.6); /* Slightly darker active background */
+    color: #fff; /* White text for active state */
+    box-shadow: 0 0 10px 5px rgba(74, 93, 106, 0.8); /* Stronger glow for active state */
+}
+  
+/* Hover effect for tab button */
+.tab-button:hover {
+    background-color: rgba(74, 93, 106, 0.5); /* Darker version of sidebar color */
+    color: #fff; /* White text on hover */
+    box-shadow: 0 0 8px 4px rgba(74, 93, 106, 0.7); /* Glow effect on hover */
+    cursor: pointer; /* Show pointer on hover */
+}
+
+  /* Slim Profile */
+  .tab-button {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+  }
+  
+
+/* Weapon Details Section */
+.tab-content {
+    margin-top: 40px;
+}
+
+.character-weapons {
+    display: none;
+}
+
+.character-weapons.active {
+    display: block;
+}
+
+/* Styling for Weapons List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+
+  
+
+  
